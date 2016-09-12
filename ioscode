@@ -1,0 +1,90 @@
+package mytest;
+
+
+
+import java.io.File;
+
+import java.net.URL;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.remote.CapabilityType;
+
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import org.testng.annotations.BeforeClass;
+
+import org.testng.annotations.Test;
+
+import io.appium.java_client.ios.IOSDriver;
+
+import io.appium.java_client.MobileElement;
+
+
+
+public class testone {
+
+
+public static IOSDriver<MobileElement> driver;
+
+
+@BeforeClass
+
+public static void setupBeforeClass() throws Exception{
+
+
+File appDir = new File ("//Users//gangaiahl//Downloads//AppFile-Developer");
+
+File app = new File (appDir,"CarsGuide.app");
+
+
+DesiredCapabilities capabilities = new DesiredCapabilities();
+
+//capabilities.setCapability("noReset", true);
+
+capabilities.setCapability("platformName", "iOS");
+
+capabilities.setCapability("deviceName", "Carsguide's iPhone");
+
+capabilities.setCapability("udid", "788760e7244680fab61b93d48da145b67df8cb5a");
+
+capabilities.setCapability(CapabilityType.BROWSER_NAME, " ");
+
+capabilities.setCapability("platformVersion", "9.3.2");
+
+capabilities.setCapability(CapabilityType.PLATFORM, "MAC");
+
+
+capabilities.setCapability("app", app.getAbsolutePath());
+
+//capabilities.setCapability("autoAcceptAlerts", true);
+
+//capabilities.setCapability("autoAcceptAlerts", true);
+
+
+
+driver = new IOSDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+
+driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
+
+}
+
+
+
+@Test
+
+public void test()
+
+{
+
+System.out.println("Hello");
+
+
+}
+
+
+
+}
+
