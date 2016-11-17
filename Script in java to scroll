@@ -1,0 +1,17 @@
+    System.out.println("TEST STARTED");
+		MobileElement makeTextLocator = (MobileElement) driver.findElementByAndroidUIAutomator("new UiSelector().text(\"Any Make & Model\")");
+		makeTextLocator.click();
+	
+		
+		//Scroll to display text in listview
+		
+		MobileElement radioGroup = (MobileElement) driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()" 
+		                           + ".resourceId(\"search_criteria_refinements_lv\")).scrollIntoView(" 
+				                   + "new UiSelector().text(\"AC\"));");
+		
+		radioGroup.click();
+		
+		driver.findElement(By.id("done_btn")).click();
+		driver.close();
+		
+		
